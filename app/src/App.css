@@ -31,7 +31,7 @@
 }
 
 .input {
-  fort-size: 1.6rem;
+  font-size: 1.6rem;
   padding: 0.5rem 2rem;
   line-height: 2.8rem;
   border-radius: 20px;
@@ -52,4 +52,38 @@
 
 .button:hover {
   background-color: rgba(0, 0, 0, 0.85);
+}
+
+.card-list {
+  column-count: 3;
+  margin-top: 10px;
+}
+
+.card {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.card-image {
+  flex: 100%;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+@media (min-width:760px) {
+  .form {
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 1rem;
+    align-items: center;
+  }
+
+  .input {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .card-list {
+    column-count: -1;
+  }
 }
