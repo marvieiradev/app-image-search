@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Unsplash, { toJson } from "unsplash-js";
-//require('dotenv').config()
 
 const unsplash = new Unsplash({
-    accessKey: process.env.ACCESS_KEY
+    accessKey: "ACCESS_KEY"
 })
 
 export default function SearchPhotos() {
@@ -19,32 +18,39 @@ export default function SearchPhotos() {
     }
 
     return (
-        <div>
-            <form className="form" onSubmit={searchP}>
-                <label htmlFor="query" className="label">
-                    {""}
-                </label>
+        <>
+            <div>
+                <form className="form" onSubmit={searchP}>
+                    <label htmlFor="query" className="label">
+                        {""}
+                    </label>
 
-                <input
-                    type="text"
-                    name="query"
-                    className="input"
-                    placeholder={`Digite algo`}
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)} />
-                <button className="button" type="submit">Buscar</button>
-            </form>
-            <div className="card-list">
-                {pics.map((pic) => <div className="card" key={pic.id}>
-                    <img
-                        src={pic.urls.full}
-                        alt={pic.alt_description}
-                        className="card-image"
-                        width="50%"
-                        height="50%">
-                    </img>
-                </div>)}
+                    <input
+                        type="text"
+                        name="query"
+                        className="input"
+                        required="true"
+                        minLength={3}
+                        placeholder={`Digite algo`}
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)} />
+                    <button className="button" type="submit">
+                        🔍︎
+                    </button>
+                </form>
+                <div className="card-list">
+                    {pics.map((pic) => <div className="card" key={pic.id}>
+                        <a href={pic.urls.full} className="card-image">
+                            <img
+                                src={pic.urls.small}
+                                alt={pic.alt_description}
+                                width="100%"
+                                height="100%">
+                            </img>
+                        </a>
+                    </div>)}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
