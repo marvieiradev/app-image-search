@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Unsplash, { toJson } from "unsplash-js";
 
 const unsplash = new Unsplash({
+    //A chave ACCESS_KEY é gerada na API do Unsplash, paara criar é necessário a criação de uma conta de desenvolvedor no: https://unsplash.com/developers
     accessKey: "ACCESS_KEY"
 })
 
